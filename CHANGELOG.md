@@ -4,3 +4,4 @@
 - style: fix indentation in technical agent
 - refactor: simplify writing agent prompt structure
 - docs: update recruiter agent description
+- fix: minor typo in orchestrator agent
