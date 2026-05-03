@@ -18,3 +18,4 @@
 - docs: update README with multi-agent architecture details
 - chore: remove console.logs from development
 - style: update font weights for better readability
+- refactor: rename interface properties for clarity
