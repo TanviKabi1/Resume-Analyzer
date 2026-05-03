@@ -9,3 +9,4 @@
 - style: format AgentStatusCard component
 - docs: document AgentPipeline component
 - refactor: extract type definitions in AgentLog
+- style: improve spacing in MultiAgentReport
