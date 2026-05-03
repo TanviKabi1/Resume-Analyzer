@@ -14,3 +14,4 @@
 - docs: add comments to upload route
 - refactor: optimize state management in resume route
 - style: adjust padding in summary cards
+- fix: align icons in agent status tracker
