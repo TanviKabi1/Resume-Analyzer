@@ -10,3 +10,4 @@
 - docs: document AgentPipeline component
 - refactor: extract type definitions in AgentLog
 - style: improve spacing in MultiAgentReport
+- chore: clean up unused CSS variables
