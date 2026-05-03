@@ -22,3 +22,4 @@
 - docs: explain scoring logic in orchestrator
 - fix: handle edge case in missing keywords display
 - style: tweak colors for agent tags
+- chore: update project configuration
