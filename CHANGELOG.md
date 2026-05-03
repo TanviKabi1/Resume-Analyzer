@@ -23,3 +23,4 @@
 - fix: handle edge case in missing keywords display
 - style: tweak colors for agent tags
 - chore: update project configuration
+- docs: finalize multi-agent system documentation
