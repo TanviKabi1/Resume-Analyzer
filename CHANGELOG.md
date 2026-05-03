@@ -6,3 +6,4 @@
 - docs: update recruiter agent description
 - fix: minor typo in orchestrator agent
 - chore: organize imports in aiOrchestrator
+- style: format AgentStatusCard component
