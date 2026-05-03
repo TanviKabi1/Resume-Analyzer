@@ -15,3 +15,4 @@
 - refactor: optimize state management in resume route
 - style: adjust padding in summary cards
 - fix: align icons in agent status tracker
+- docs: update README with multi-agent architecture details
