@@ -17,3 +17,4 @@
 - fix: align icons in agent status tracker
 - docs: update README with multi-agent architecture details
 - chore: remove console.logs from development
+- style: update font weights for better readability
