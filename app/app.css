@@ -143,10 +143,283 @@ form {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(99, 102, 241, 0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MULTI-AGENT DASHBOARD — UPLOAD PAGE
+═══════════════════════════════════════════════════════════════ */
+
+.multi-agent-dashboard {
+  @apply w-full flex flex-col gap-6 mt-6 animate-in fade-in duration-500;
+}
+
+.dashboard-title {
+  @apply text-center text-white font-bold text-2xl tracking-tight;
+}
+
+.dashboard-subtitle {
+  @apply text-center text-gray-400 text-sm font-mono mt-1;
+}
+
+/* Agent Cards Grid */
+.agent-cards-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+/* Individual Agent Card */
+.agent-card {
+  @apply relative rounded-2xl p-4 border transition-all duration-300;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.agent-card-idle     { @apply border-gray-700/50; }
+.agent-card-running  { @apply border-blue-500/60; animation: pulse-glow 2s infinite; }
+.agent-card-completed{ @apply border-emerald-500/60; }
+.agent-card-error    { @apply border-red-500/60; }
+
+.agent-card-name {
+  @apply text-white font-semibold text-sm leading-tight;
+}
+
+/* Status dot */
+.status-dot {
+  @apply inline-block w-2.5 h-2.5 rounded-full;
+}
+.status-dot-idle      { @apply bg-gray-500; }
+.status-dot-running   { @apply bg-blue-400; animation: pulse-glow 1s infinite; }
+.status-dot-completed { @apply bg-emerald-400; }
+.status-dot-error     { @apply bg-red-400; }
+
+/* Spinner */
+.agent-spinner {
+  @apply w-4 h-4 rounded-full border-2 border-blue-400 border-t-transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Progress bar */
+.agent-progress-track {
+  @apply w-full h-1.5 bg-gray-700/60 rounded-full overflow-hidden mt-3;
+}
+
+.agent-progress-bar {
+  @apply h-full rounded-full transition-all duration-700;
+}
+
+/* Stat badge */
+.agent-stat-badge {
+  @apply text-xs font-mono px-2 py-0.5 bg-gray-800 text-gray-300 rounded-full border border-gray-700;
+}
+
+/* Confidence bar */
+.confidence-track {
+  @apply w-16 h-1.5 bg-gray-700 rounded-full overflow-hidden;
+}
+
+.confidence-fill {
+  @apply h-full bg-emerald-400 rounded-full transition-all duration-700;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PIPELINE VISUALIZATION
+═══════════════════════════════════════════════════════════════ */
+
+.agent-pipeline-wrapper {
+  @apply w-full rounded-2xl p-5 border border-gray-700/50;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.pipeline-title {
+  @apply text-white font-bold text-sm uppercase tracking-widest mb-4 text-center font-mono;
+}
+
+.pipeline-flow {
+  @apply flex flex-col items-center gap-0;
+}
+
+.pipeline-node {
+  @apply flex flex-col items-center justify-center w-14 h-14 rounded-2xl border-2 text-xl transition-all duration-300;
+}
+
+.pipeline-node-idle      { @apply bg-gray-800 border-gray-600 text-gray-500; }
+.pipeline-node-running   { @apply bg-blue-900/60 border-blue-500 text-blue-300; animation: pulse-glow 2s infinite; }
+.pipeline-node-done,
+.pipeline-node-completed { @apply bg-emerald-900/60 border-emerald-500 text-emerald-300; }
+.pipeline-node-error     { @apply bg-red-900/60 border-red-500 text-red-300; }
+
+.pipeline-node-label {
+  @apply text-gray-400 text-xs font-mono mt-1 text-center;
+}
+
+.pipeline-arrow {
+  @apply text-gray-500 text-lg font-mono my-1;
+}
+
+.pipeline-parallel-block {
+  @apply flex flex-col items-center w-full;
+}
+
+.pipeline-parallel-label {
+  @apply text-xs text-gray-500 font-mono uppercase tracking-widest mb-2;
+}
+
+.pipeline-parallel-agents {
+  @apply flex flex-row gap-2 flex-wrap justify-center;
+}
+
+.pipeline-mini-node-wrapper {
+  @apply flex flex-col items-center;
+}
+
+.pipeline-mini-node {
+  @apply flex flex-col items-center gap-1 px-3 py-2 rounded-xl border text-xs font-mono font-medium transition-all duration-300;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AGENT LOG
+═══════════════════════════════════════════════════════════════ */
+
+.agent-log-panel {
+  @apply w-full rounded-2xl border border-gray-700/50 overflow-hidden;
+  background: rgba(9, 14, 27, 0.95);
+}
+
+.agent-log-header {
+  @apply flex items-center justify-between px-4 py-2 border-b border-gray-700/50 bg-gray-900/80;
+}
+
+.agent-log-body {
+  @apply p-3 h-48 overflow-y-auto font-mono text-xs space-y-1 scroll-smooth;
+}
+
+.log-entry {
+  @apply flex items-start gap-2 leading-relaxed;
+}
+
+.log-timestamp {
+  @apply text-gray-600 shrink-0;
+}
+
+.log-agent-tag {
+  @apply font-semibold shrink-0;
+}
+
+.log-type-icon {
+  @apply shrink-0;
+}
+
+.log-message {
+  @apply break-all;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MULTI-AGENT REPORT PAGE
+═══════════════════════════════════════════════════════════════ */
+
+.multi-agent-report {
+  @apply flex flex-col gap-5 w-full pb-10 animate-in fade-in duration-700;
+}
+
+/* Hero score banner */
+.report-hero {
+  @apply flex items-center justify-between gap-4 rounded-2xl p-5 border border-gray-700/50 flex-wrap;
+  background: linear-gradient(135deg, rgba(16,24,40,0.95) 0%, rgba(30,41,59,0.95) 100%);
+  backdrop-filter: blur(16px);
+}
+
+.report-hero-left {
+  @apply flex items-center gap-4;
+}
+
+.report-hero-scores {
+  @apply flex gap-4 flex-wrap;
+}
+
+.mini-score-block {
+  @apply flex flex-col items-center;
+}
+
+/* Strengths / Weaknesses */
+.report-sw-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.report-sw-card {
+  @apply rounded-2xl p-4 border border-gray-700/50;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.report-sw-title {
+  @apply font-bold text-sm uppercase tracking-wide mb-3 font-mono;
+}
+
+/* Section cards (collapsible) */
+.report-section-card {
+  @apply rounded-2xl border border-gray-700/50 overflow-hidden;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.report-section-header {
+  @apply w-full flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 transition-colors duration-200;
+}
+
+.report-section-body {
+  @apply p-4 border-t border-gray-700/40 animate-in fade-in duration-300;
+}
+
+/* Orchestrator panel */
+.report-orchestrator-panel {
+  @apply rounded-2xl p-5 border-2 border-emerald-500/40;
+  background: linear-gradient(135deg, rgba(6,78,59,0.15) 0%, rgba(15,23,42,0.95) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.report-final-summary {
+  @apply bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-4;
+}
+
+/* Download button */
+.download-roadmap-btn {
+  @apply flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold text-sm text-white transition-all duration-200;
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.download-roadmap-btn:hover {
+  background: linear-gradient(135deg, #10b981, #059669);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MULTI-AGENT PROCESSING — UPLOAD PAGE
+═══════════════════════════════════════════════════════════════ */
+
+.processing-overlay {
+  @apply flex flex-col gap-6 w-full max-w-4xl mx-auto py-6;
+}
+
+.processing-header {
+  @apply text-center;
+}
+
+.processing-title {
+  @apply text-2xl font-bold text-white;
+}
+
+.processing-subtitle {
+  @apply text-gray-400 text-sm font-mono mt-1;
 }
