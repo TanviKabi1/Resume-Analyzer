@@ -8,3 +8,4 @@
 - chore: organize imports in aiOrchestrator
 - style: format AgentStatusCard component
 - docs: document AgentPipeline component
+- refactor: extract type definitions in AgentLog
