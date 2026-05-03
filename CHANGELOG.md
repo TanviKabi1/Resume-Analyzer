@@ -21,3 +21,4 @@
 - refactor: rename interface properties for clarity
 - docs: explain scoring logic in orchestrator
 - fix: handle edge case in missing keywords display
+- style: tweak colors for agent tags
