@@ -11,3 +11,4 @@
 - refactor: extract type definitions in AgentLog
 - style: improve spacing in MultiAgentReport
 - chore: clean up unused CSS variables
+- docs: add comments to upload route
