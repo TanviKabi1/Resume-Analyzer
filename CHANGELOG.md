@@ -12,3 +12,4 @@
 - style: improve spacing in MultiAgentReport
 - chore: clean up unused CSS variables
 - docs: add comments to upload route
+- refactor: optimize state management in resume route
